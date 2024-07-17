@@ -3,6 +3,8 @@ const cors = require("cors");
 const app = express();
 app.use(cors());
 
+
+
 const todos = [{
   id: 1,
   Name: "Todo 1",
@@ -59,12 +61,15 @@ const todos = [{
   done: false,
 }]
 
+
+
 app.get("/todo", (req, res) => {
   const todo = todos.find(t => t.id == req.query.id);
   res.json({
     todo
   })
 })
+
 
 app.get("/todos", (req, res) => {
   const randomTodos = [];
@@ -78,6 +83,8 @@ app.get("/todos", (req, res) => {
   res.json({
     todos: randomTodos,
   })
-});
+}); 
+
+
 
 app.listen(8080)
